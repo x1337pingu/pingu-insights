@@ -1,0 +1,120 @@
+<svg width="1200" height="628" viewBox="0 0 1200 628" fill="none" xmlns="http://www.w3.org/2000/svg">
+
+  <!-- V7 RICH: From Chaos to Precision -->
+  <!-- Multiple price sources → Oracle aggregation → Single execution price -->
+
+  <!-- LAYER 1: Subtle grid background (representing the blockchain/network) -->
+  <line x1="0" y1="157" x2="1200" y2="157" stroke="#571F83" stroke-width="0.5" stroke-opacity="0.2"/>
+  <line x1="0" y1="314" x2="1200" y2="314" stroke="#571F83" stroke-width="0.5" stroke-opacity="0.3"/>
+  <line x1="0" y1="471" x2="1200" y2="471" stroke="#571F83" stroke-width="0.5" stroke-opacity="0.2"/>
+
+  <line x1="200" y1="0" x2="200" y2="628" stroke="#571F83" stroke-width="0.5" stroke-opacity="0.15"/>
+  <line x1="400" y1="0" x2="400" y2="628" stroke="#571F83" stroke-width="0.5" stroke-opacity="0.15"/>
+  <line x1="600" y1="0" x2="600" y2="628" stroke="#571F83" stroke-width="0.5" stroke-opacity="0.2"/>
+  <line x1="800" y1="0" x2="800" y2="628" stroke="#571F83" stroke-width="0.5" stroke-opacity="0.15"/>
+  <line x1="1000" y1="0" x2="1000" y2="628" stroke="#571F83" stroke-width="0.5" stroke-opacity="0.15"/>
+
+  <!-- LAYER 2: Connection lines from sources to center (data flow) -->
+  <line x1="80" y1="100" x2="620" y2="314" stroke="#9051F4" stroke-width="0.5" stroke-opacity="0.15"/>
+  <line x1="120" y1="200" x2="620" y2="314" stroke="#9051F4" stroke-width="0.5" stroke-opacity="0.2"/>
+  <line x1="100" y1="314" x2="620" y2="314" stroke="#9051F4" stroke-width="0.5" stroke-opacity="0.25"/>
+  <line x1="140" y1="450" x2="620" y2="314" stroke="#9051F4" stroke-width="0.5" stroke-opacity="0.2"/>
+  <line x1="90" y1="550" x2="620" y2="314" stroke="#9051F4" stroke-width="0.5" stroke-opacity="0.15"/>
+
+  <line x1="200" y1="80" x2="620" y2="314" stroke="#FF99D2" stroke-width="0.5" stroke-opacity="0.15"/>
+  <line x1="250" y1="520" x2="620" y2="314" stroke="#FF99D2" stroke-width="0.5" stroke-opacity="0.15"/>
+
+  <!-- LAYER 3: Scattered source particles (CRYPTO EXCHANGES - Purple) -->
+  <!-- Dense cluster representing multiple price feeds -->
+  <circle cx="60" cy="280" r="4" fill="#9051F4" fill-opacity="0.4"/>
+  <circle cx="85" cy="130" r="5" fill="#9051F4" fill-opacity="0.5"/>
+  <circle cx="75" cy="380" r="4" fill="#9051F4" fill-opacity="0.4"/>
+  <circle cx="110" cy="200" r="6" fill="#9051F4" fill-opacity="0.6"/>
+  <circle cx="95" cy="470" r="4" fill="#9051F4" fill-opacity="0.4"/>
+  <circle cx="130" cy="90" r="5" fill="#9051F4" fill-opacity="0.5"/>
+  <circle cx="140" cy="340" r="5" fill="#9051F4" fill-opacity="0.5"/>
+  <circle cx="120" cy="550" r="4" fill="#9051F4" fill-opacity="0.4"/>
+  <circle cx="160" cy="160" r="6" fill="#9051F4" fill-opacity="0.6"/>
+  <circle cx="150" cy="420" r="5" fill="#9051F4" fill-opacity="0.5"/>
+  <circle cx="180" cy="260" r="5" fill="#9051F4" fill-opacity="0.5"/>
+  <circle cx="170" cy="500" r="4" fill="#9051F4" fill-opacity="0.4"/>
+  <circle cx="200" cy="120" r="5" fill="#9051F4" fill-opacity="0.5"/>
+  <circle cx="190" cy="360" r="6" fill="#9051F4" fill-opacity="0.6"/>
+  <circle cx="210" cy="580" r="4" fill="#9051F4" fill-opacity="0.3"/>
+  <circle cx="230" cy="220" r="5" fill="#9051F4" fill-opacity="0.5"/>
+  <circle cx="220" cy="450" r="5" fill="#9051F4" fill-opacity="0.5"/>
+  <circle cx="250" cy="314" r="6" fill="#9051F4" fill-opacity="0.6"/>
+  <circle cx="240" cy="80" r="4" fill="#9051F4" fill-opacity="0.4"/>
+  <circle cx="260" cy="180" r="5" fill="#9051F4" fill-opacity="0.5"/>
+  <circle cx="270" cy="400" r="5" fill="#9051F4" fill-opacity="0.5"/>
+  <circle cx="280" cy="530" r="4" fill="#9051F4" fill-opacity="0.4"/>
+
+  <!-- LAYER 4: TradFi source particles (TRADFI - Pink) -->
+  <circle cx="100" cy="314" r="5" fill="#FF99D2" fill-opacity="0.5"/>
+  <circle cx="180" cy="100" r="4" fill="#FF99D2" fill-opacity="0.4"/>
+  <circle cx="160" cy="520" r="5" fill="#FF99D2" fill-opacity="0.5"/>
+  <circle cx="220" cy="170" r="5" fill="#FF99D2" fill-opacity="0.5"/>
+  <circle cx="200" cy="480" r="4" fill="#FF99D2" fill-opacity="0.4"/>
+  <circle cx="260" cy="280" r="5" fill="#FF99D2" fill-opacity="0.5"/>
+  <circle cx="240" cy="550" r="4" fill="#FF99D2" fill-opacity="0.4"/>
+  <circle cx="290" cy="140" r="4" fill="#FF99D2" fill-opacity="0.4"/>
+  <circle cx="300" cy="380" r="5" fill="#FF99D2" fill-opacity="0.5"/>
+
+  <!-- LAYER 5: Transition zone - particles getting organized -->
+  <circle cx="320" cy="250" r="5" fill="#9051F4" fill-opacity="0.5"/>
+  <circle cx="340" cy="380" r="5" fill="#9051F4" fill-opacity="0.5"/>
+  <circle cx="360" cy="290" r="5" fill="#9051F4" fill-opacity="0.6"/>
+  <circle cx="380" cy="340" r="5" fill="#9051F4" fill-opacity="0.6"/>
+  <circle cx="400" cy="280" r="5" fill="#9051F4" fill-opacity="0.6"/>
+  <circle cx="420" cy="350" r="5" fill="#9051F4" fill-opacity="0.6"/>
+  <circle cx="350" cy="200" r="4" fill="#FF99D2" fill-opacity="0.5"/>
+  <circle cx="390" cy="420" r="4" fill="#FF99D2" fill-opacity="0.5"/>
+
+  <!-- Getting closer to center line -->
+  <circle cx="450" cy="295" r="5" fill="#9051F4" fill-opacity="0.7"/>
+  <circle cx="470" cy="335" r="5" fill="#9051F4" fill-opacity="0.7"/>
+  <circle cx="490" cy="305" r="5" fill="#9051F4" fill-opacity="0.7"/>
+  <circle cx="510" cy="325" r="5" fill="#9051F4" fill-opacity="0.7"/>
+  <circle cx="530" cy="310" r="5" fill="#9051F4" fill-opacity="0.8"/>
+  <circle cx="550" cy="318" r="5" fill="#9051F4" fill-opacity="0.8"/>
+  <circle cx="570" cy="312" r="5" fill="#9051F4" fill-opacity="0.85"/>
+  <circle cx="590" cy="316" r="5" fill="#9051F4" fill-opacity="0.9"/>
+
+  <!-- LAYER 6: CONVERGENCE ZONE (Oracle/Pingu) -->
+  <!-- Outer glow rings -->
+  <circle cx="650" cy="314" r="80" fill="none" stroke="#9051F4" stroke-width="1" stroke-opacity="0.1"/>
+  <circle cx="650" cy="314" r="60" fill="none" stroke="#9051F4" stroke-width="1" stroke-opacity="0.2"/>
+  <circle cx="650" cy="314" r="45" fill="none" stroke="#9051F4" stroke-width="1.5" stroke-opacity="0.3"/>
+  <circle cx="650" cy="314" r="30" fill="none" stroke="#9051F4" stroke-width="2" stroke-opacity="0.5"/>
+  <circle cx="650" cy="314" r="18" fill="none" stroke="#9051F4" stroke-width="2" stroke-opacity="0.8"/>
+  <!-- Core -->
+  <circle cx="650" cy="314" r="10" fill="#9051F4"/>
+  <!-- Inner highlight -->
+  <circle cx="648" cy="312" r="4" fill="#FFFFFF" fill-opacity="0.3"/>
+
+  <!-- LAYER 7: OUTPUT STREAM (Clean execution) -->
+  <!-- Main output line with glow -->
+  <line x1="700" y1="314" x2="1200" y2="314" stroke="#72FFA6" stroke-width="6" stroke-opacity="0.15"/>
+  <line x1="700" y1="314" x2="1200" y2="314" stroke="#72FFA6" stroke-width="3" stroke-opacity="0.3"/>
+  <line x1="700" y1="314" x2="1200" y2="314" stroke="#72FFA6" stroke-width="1.5"/>
+
+  <!-- Aligned output particles (same spacing = same price for everyone) -->
+  <circle cx="740" cy="314" r="7" fill="#72FFA6"/>
+  <circle cx="820" cy="314" r="7" fill="#72FFA6"/>
+  <circle cx="900" cy="314" r="7" fill="#72FFA6"/>
+  <circle cx="980" cy="314" r="7" fill="#72FFA6"/>
+  <circle cx="1060" cy="314" r="7" fill="#72FFA6"/>
+  <circle cx="1140" cy="314" r="7" fill="#72FFA6"/>
+
+  <!-- Subtle pulse rings on output (representing consistent execution) -->
+  <circle cx="740" cy="314" r="12" fill="none" stroke="#72FFA6" stroke-width="1" stroke-opacity="0.3"/>
+  <circle cx="900" cy="314" r="12" fill="none" stroke="#72FFA6" stroke-width="1" stroke-opacity="0.3"/>
+  <circle cx="1060" cy="314" r="12" fill="none" stroke="#72FFA6" stroke-width="1" stroke-opacity="0.3"/>
+
+  <!-- LAYER 8: Speed indicators (representing fast finality) -->
+  <line x1="700" y1="280" x2="750" y2="280" stroke="#72FFA6" stroke-width="1" stroke-opacity="0.4"/>
+  <line x1="710" y1="290" x2="770" y2="290" stroke="#72FFA6" stroke-width="1" stroke-opacity="0.3"/>
+  <line x1="700" y1="348" x2="750" y2="348" stroke="#72FFA6" stroke-width="1" stroke-opacity="0.4"/>
+  <line x1="710" y1="338" x2="770" y2="338" stroke="#72FFA6" stroke-width="1" stroke-opacity="0.3"/>
+
+</svg>

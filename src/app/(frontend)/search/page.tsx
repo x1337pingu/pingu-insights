@@ -1,0 +1,89 @@
+import type { Metadata } from 'next/types'
+
+import { CollectionArchive } from '@/components/CollectionArchive'
+import configPromise from '@payload-config'
+import { getPayload } from 'payload'
+import React from 'react'
+import { Search } from '@/search/Component'
+import PageClient from './page.client'
+import { CardPostData } from '@/components/Card'
+
+type Args = {
+  searchParams: Promise<{
+    q: string
+  }>
+}
+export default async function Page({ searchParams: searchParamsPromise }: Args) {
+  const { q: query } = await searchParamsPromise
+  const payload = await getPayload({ config: configPromise })
+
+  const posts = await payload.find({
+    collection: 'search',
+    depth: 1,
+    limit: 12,
+    select: {
+      title: true,
+      slug: true,
+      categories: true,
+      meta: true,
+    },
+    pagination: false,
+    ...(query
+      ? {
+          where: {
+            or: [
+              {
+                title: {
+                  like: query,
+                },
+              },
+              {
+                'meta.description': {
+                  like: query,
+                },
+              },
+              {
+                'meta.title': {
+                  like: query,
+                },
+              },
+              {
+                slug: {
+                  like: query,
+                },
+              },
+            ],
+          },
+        }
+      : {}),
+  })
+
+  return (
+    <div className="pt-16 pb-24">
+      <PageClient />
+      <div className="container mb-12">
+        <h1 className="text-3xl md:text-4xl font-bold text-white mb-6">Search</h1>
+        <div className="max-w-[32rem]">
+          <Search />
+        </div>
+      </div>
+
+      {posts.totalDocs > 0 ? (
+        <CollectionArchive posts={posts.docs as CardPostData[]} />
+      ) : (
+        <div className="container">
+          <p className="text-[#8D8DC0]">
+            {query ? `No results found for "${query}".` : 'Enter a search term above.'}
+          </p>
+        </div>
+      )}
+    </div>
+  )
+}
+
+export function generateMetadata(): Metadata {
+  return {
+    title: 'Search | Pingu Blog',
+    description: 'Search articles on Pingu Blog.',
+  }
+}

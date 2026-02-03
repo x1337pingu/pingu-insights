@@ -1,0 +1,36 @@
+// Pingu Admin Theme Overrides
+:root {
+  --theme-elevation-0: #0a0a0a;
+  --theme-elevation-50: #120815;
+  --theme-elevation-100: #1a0f1e;
+  --theme-elevation-150: #220e28;
+  --theme-elevation-200: #28012E;
+  --theme-elevation-250: #321538;
+  --theme-elevation-300: #3e1a45;
+  --theme-elevation-350: #4a1f52;
+  --theme-elevation-400: #571F83;
+  --theme-elevation-450: #6e3c99;
+  --theme-elevation-500: #8D8DC0;
+  --theme-elevation-550: #9999A6;
+  --theme-elevation-600: #D5D5DA;
+  --theme-elevation-650: #E9E9EE;
+  --theme-elevation-700: #FFFFFF;
+  --theme-elevation-750: #FFFFFF;
+  --theme-elevation-800: #FFFFFF;
+  --theme-elevation-850: #FFFFFF;
+  --theme-elevation-900: #FFFFFF;
+  --theme-elevation-950: #FFFFFF;
+  --theme-elevation-1000: #FFFFFF;
+
+  --theme-success-50: #15542C;
+  --theme-success-100: #4AC477;
+  --theme-success-500: #72FFA6;
+
+  --theme-error-50: #540639;
+  --theme-error-100: #A13E73;
+  --theme-error-500: #FF99D2;
+
+  --theme-warning-50: #3a2f00;
+  --theme-warning-100: #7a6200;
+  --theme-warning-500: #FFD700;
+}
