@@ -3,12 +3,11 @@ import type { CollectionSlug, GlobalSlug, Payload, PayloadRequest, File } from '
 import { contactForm as contactFormData } from './contact-form'
 import { contact as contactPageData } from './contact-page'
 import { home } from './home'
-import { image1 } from './image-1'
-import { image2 } from './image-2'
+import { imageWim } from './image-wim'
+import { imageWhyPingu } from './image-why-pingu'
 import { imageHero1 } from './image-hero-1'
-import { post1 } from './post-1'
-import { post2 } from './post-2'
-import { post3 } from './post-3'
+import { postWimW06 } from './post-wim-w06'
+import { postWhyPingu } from './post-why-pingu'
 
 const collections: CollectionSlug[] = [
   'categories',
@@ -21,8 +20,6 @@ const collections: CollectionSlug[] = [
 ]
 
 const globals: GlobalSlug[] = ['header', 'footer']
-
-const categories = ['Technology', 'News', 'Finance', 'Design', 'Software', 'Engineering']
 
 // Next.js revalidation errors are normal when seeding the database without a server running
 // i.e. running `yarn seed` locally instead of using the admin UI within an active app
@@ -37,10 +34,6 @@ export const seed = async ({
 }): Promise<void> => {
   payload.logger.info('Seeding database...')
 
-  // we need to clear the media directory before seeding
-  // as well as the collections and globals
-  // this is because while `yarn seed` drops the database
-  // the custom `/api/seed` endpoint does not
   payload.logger.info(`— Clearing collections and globals...`)
 
   // clear the database
@@ -69,7 +62,7 @@ export const seed = async ({
       .map((collection) => payload.db.deleteVersions({ collection, req, where: {} })),
   )
 
-  payload.logger.info(`— Seeding demo author and user...`)
+  payload.logger.info(`— Seeding author...`)
 
   await payload.delete({
     collection: 'users',
@@ -83,113 +76,99 @@ export const seed = async ({
 
   payload.logger.info(`— Seeding media...`)
 
-  const [image1Buffer, image2Buffer, image3Buffer, hero1Buffer] = await Promise.all([
+  const [wimImageBuffer, pinguImageBuffer, heroBuffer] = await Promise.all([
     fetchFileByURL(
-      'https://raw.githubusercontent.com/payloadcms/payload/refs/heads/main/templates/website/src/endpoints/seed/image-post1.webp',
+      'https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?w=1920&q=80&fm=jpg',
+      'wim-hero.jpg',
     ),
     fetchFileByURL(
-      'https://raw.githubusercontent.com/payloadcms/payload/refs/heads/main/templates/website/src/endpoints/seed/image-post2.webp',
-    ),
-    fetchFileByURL(
-      'https://raw.githubusercontent.com/payloadcms/payload/refs/heads/main/templates/website/src/endpoints/seed/image-post3.webp',
+      'https://images.unsplash.com/photo-1639762681485-074b7f938ba0?w=1920&q=80&fm=jpg',
+      'pingu-hero.jpg',
     ),
     fetchFileByURL(
       'https://raw.githubusercontent.com/payloadcms/payload/refs/heads/main/templates/website/src/endpoints/seed/image-hero1.webp',
     ),
   ])
 
-  const [demoAuthor, image1Doc, image2Doc, image3Doc, imageHomeDoc] = await Promise.all([
+  // Create categories
+  const categoryData = [
+    { title: 'Week in Markets', slug: 'week-in-markets' },
+    { title: 'Knowledge Base', slug: 'knowledge-base' },
+    { title: 'Chart Check', slug: 'chart-check' },
+    { title: 'Announcements', slug: 'announcements' },
+  ]
+
+  const categoryDocs = await Promise.all(
+    categoryData.map((cat) =>
+      payload.create({
+        collection: 'categories',
+        data: cat,
+      }),
+    ),
+  )
+
+  const wimCategory = categoryDocs.find((c) => c.slug === 'week-in-markets')
+  const kbCategory = categoryDocs.find((c) => c.slug === 'knowledge-base')
+
+  const [demoAuthor, wimImageDoc, pinguImageDoc, homeImageDoc] = await Promise.all([
     payload.create({
       collection: 'users',
       data: {
-        name: 'Demo Author',
+        name: 'Pingu Research',
         email: 'demo-author@example.com',
         password: 'password',
       } as any,
     }),
     payload.create({
       collection: 'media',
-      data: image1,
-      file: image1Buffer,
+      data: imageWim,
+      file: wimImageBuffer,
     }),
     payload.create({
       collection: 'media',
-      data: image2,
-      file: image2Buffer,
-    }),
-    payload.create({
-      collection: 'media',
-      data: image2,
-      file: image3Buffer,
+      data: imageWhyPingu,
+      file: pinguImageBuffer,
     }),
     payload.create({
       collection: 'media',
       data: imageHero1,
-      file: hero1Buffer,
+      file: heroBuffer,
     }),
-    categories.map((category) =>
-      payload.create({
-        collection: 'categories',
-        data: {
-          title: category,
-          slug: category,
-        },
-      }),
-    ),
   ])
 
   payload.logger.info(`— Seeding posts...`)
 
-  // Do not create posts with `Promise.all` because we want the posts to be created in order
-  // This way we can sort them by `createdAt` or `publishedAt` and they will be in the expected order
-  const post1Doc = await payload.create({
+  // Create posts in order (oldest first)
+  const whyPinguDoc = await payload.create({
     collection: 'posts',
     depth: 0,
-    context: {
-      disableRevalidate: true,
-    },
-    data: post1({ heroImage: image1Doc, blockImage: image2Doc, author: demoAuthor }),
+    context: { disableRevalidate: true },
+    data: {
+      ...postWhyPingu({ heroImage: pinguImageDoc, author: demoAuthor }),
+      categories: kbCategory ? [kbCategory.id] : [],
+    } as any,
   })
 
-  const post2Doc = await payload.create({
+  const wimDoc = await payload.create({
     collection: 'posts',
     depth: 0,
-    context: {
-      disableRevalidate: true,
-    },
-    data: post2({ heroImage: image2Doc, blockImage: image3Doc, author: demoAuthor }),
+    context: { disableRevalidate: true },
+    data: {
+      ...postWimW06({ heroImage: wimImageDoc, author: demoAuthor }),
+      categories: wimCategory ? [wimCategory.id] : [],
+    } as any,
   })
 
-  const post3Doc = await payload.create({
-    collection: 'posts',
-    depth: 0,
-    context: {
-      disableRevalidate: true,
-    },
-    data: post3({ heroImage: image3Doc, blockImage: image1Doc, author: demoAuthor }),
-  })
-
-  // update each post with related posts
+  // Link related posts
   await payload.update({
-    id: post1Doc.id,
+    id: whyPinguDoc.id,
     collection: 'posts',
-    data: {
-      relatedPosts: [post2Doc.id, post3Doc.id],
-    },
+    data: { relatedPosts: [wimDoc.id] },
   })
   await payload.update({
-    id: post2Doc.id,
+    id: wimDoc.id,
     collection: 'posts',
-    data: {
-      relatedPosts: [post1Doc.id, post3Doc.id],
-    },
-  })
-  await payload.update({
-    id: post3Doc.id,
-    collection: 'posts',
-    data: {
-      relatedPosts: [post1Doc.id, post2Doc.id],
-    },
+    data: { relatedPosts: [whyPinguDoc.id] },
   })
 
   payload.logger.info(`— Seeding contact form...`)
@@ -206,7 +185,7 @@ export const seed = async ({
     payload.create({
       collection: 'pages',
       depth: 0,
-      data: home({ heroImage: imageHomeDoc, metaImage: image2Doc }),
+      data: home({ heroImage: homeImageDoc, metaImage: wimImageDoc }),
     }),
     payload.create({
       collection: 'pages',
@@ -256,17 +235,17 @@ export const seed = async ({
           {
             link: {
               type: 'custom',
-              label: 'Source Code',
+              label: 'Pingu Exchange',
               newTab: true,
-              url: 'https://github.com/payloadcms/payload/tree/main/templates/website',
+              url: 'https://pingu.exchange',
             },
           },
           {
             link: {
               type: 'custom',
-              label: 'Payload',
+              label: 'Telegram',
               newTab: true,
-              url: 'https://payloadcms.com/',
+              url: 'https://t.me/PinguExchange',
             },
           },
         ],
@@ -277,7 +256,7 @@ export const seed = async ({
   payload.logger.info('Seeded database successfully!')
 }
 
-async function fetchFileByURL(url: string): Promise<File> {
+async function fetchFileByURL(url: string, filename?: string): Promise<File> {
   const res = await fetch(url, {
     credentials: 'include',
     method: 'GET',
@@ -288,11 +267,13 @@ async function fetchFileByURL(url: string): Promise<File> {
   }
 
   const data = await res.arrayBuffer()
+  const contentType = res.headers.get('content-type') || 'image/jpeg'
+  const name = filename || url.split('/').pop()?.split('?')[0] || `file-${Date.now()}`
 
   return {
-    name: url.split('/').pop() || `file-${Date.now()}`,
+    name,
     data: Buffer.from(data),
-    mimetype: `image/${url.split('.').pop()}`,
+    mimetype: contentType,
     size: data.byteLength,
   }
 }
