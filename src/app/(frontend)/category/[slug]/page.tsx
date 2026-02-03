@@ -11,6 +11,7 @@ export async function generateStaticParams() {
   const payload = await getPayload({ config: configPromise })
   const categories = await payload.find({
     collection: 'categories',
+    overrideAccess: true,
     limit: 100,
     pagination: false,
     select: {

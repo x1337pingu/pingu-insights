@@ -73,7 +73,7 @@ export async function generateStaticParams() {
   const payload = await getPayload({ config: configPromise })
   const { totalDocs } = await payload.count({
     collection: 'posts',
-    overrideAccess: false,
+    overrideAccess: true,
   })
 
   const totalPages = Math.ceil(totalDocs / 10)
