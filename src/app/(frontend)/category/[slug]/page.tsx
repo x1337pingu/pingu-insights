@@ -46,7 +46,7 @@ export default async function CategoryPage({ params: paramsPromise }: Args) {
     collection: 'posts',
     depth: 1,
     limit: 12,
-    overrideAccess: false,
+    overrideAccess: true,
     where: {
       categories: {
         contains: category.id,

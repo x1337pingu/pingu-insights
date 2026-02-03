@@ -23,7 +23,7 @@ export default async function TagPage({ params: paramsPromise }: Args) {
     collection: 'posts',
     depth: 1,
     limit: 50,
-    overrideAccess: false,
+    overrideAccess: true,
     where: {
       _status: { equals: 'published' },
       'tags.tag': { equals: decodedTag },

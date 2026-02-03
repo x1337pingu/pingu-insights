@@ -15,7 +15,7 @@ export default async function HomePage() {
     collection: 'posts',
     depth: 1,
     limit: 9,
-    overrideAccess: false,
+    overrideAccess: true,
     where: {
       _status: { equals: 'published' },
     },
@@ -26,7 +26,7 @@ export default async function HomePage() {
   const categories = await payload.find({
     collection: 'categories',
     limit: 10,
-    overrideAccess: false,
+    overrideAccess: true,
     where: {
       slug: {
         in: ['week-in-markets', 'knowledge-base'],
