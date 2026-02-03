@@ -92,7 +92,7 @@ export async function generateMetadata({ params: paramsPromise }: Args): Promise
   const category = await queryCategoryBySlug({ slug: decodedSlug })
 
   return {
-    title: category ? `${category.title} | Pingu Blog` : 'Category | Pingu Blog',
+    title: category ? `${category.title} | Pingu Insights` : 'Category | Pingu Insights',
     description: category ? (category as any).description || `Articles in ${category.title}` : '',
     openGraph: {
       title: category?.title || 'Category',

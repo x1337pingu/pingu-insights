@@ -36,31 +36,29 @@ export const seed = async ({
 
   payload.logger.info(`— Clearing collections and globals...`)
 
-  // clear the database
-  await Promise.all(
-    globals.map((global) =>
-      payload.updateGlobal({
-        slug: global,
-        data: {
-          navItems: [],
-        } as any,
-        depth: 0,
-        context: {
-          disableRevalidate: true,
-        },
-      }),
-    ),
-  )
+  // clear the database (sequential to avoid write conflicts)
+  for (const global of globals) {
+    await payload.updateGlobal({
+      slug: global,
+      data: {
+        navItems: [],
+      } as any,
+      depth: 0,
+      context: {
+        disableRevalidate: true,
+      },
+    })
+  }
 
-  await Promise.all(
-    collections.map((collection) => payload.db.deleteMany({ collection, req, where: {} })),
-  )
+  for (const collection of collections) {
+    await payload.db.deleteMany({ collection, req, where: {} })
+  }
 
-  await Promise.all(
-    collections
-      .filter((collection) => Boolean(payload.collections[collection].config.versions))
-      .map((collection) => payload.db.deleteVersions({ collection, req, where: {} })),
-  )
+  for (const collection of collections) {
+    if (payload.collections[collection].config.versions) {
+      await payload.db.deleteVersions({ collection, req, where: {} })
+    }
+  }
 
   payload.logger.info(`— Seeding author...`)
 
@@ -92,10 +90,10 @@ export const seed = async ({
 
   // Create categories
   const categoryData = [
-    { title: 'Week in Markets', slug: 'week-in-markets' },
-    { title: 'Knowledge Base', slug: 'knowledge-base' },
-    { title: 'Chart Check', slug: 'chart-check' },
-    { title: 'Announcements', slug: 'announcements' },
+    { title: 'Week in Markets', slug: 'week-in-markets', color: '#29B6F6' },
+    { title: 'Knowledge Base', slug: 'knowledge-base', color: '#72FFA6' },
+    { title: 'Chart Check', slug: 'chart-check', color: '#FFB74D' },
+    { title: 'Announcements', slug: 'announcements', color: '#FF99D2' },
   ]
 
   const categoryDocs = await Promise.all(
@@ -164,11 +162,13 @@ export const seed = async ({
     id: whyPinguDoc.id,
     collection: 'posts',
     data: { relatedPosts: [wimDoc.id] },
+    context: { disableRevalidate: true },
   })
   await payload.update({
     id: wimDoc.id,
     collection: 'posts',
     data: { relatedPosts: [whyPinguDoc.id] },
+    context: { disableRevalidate: true },
   })
 
   payload.logger.info(`— Seeding contact form...`)
@@ -185,11 +185,13 @@ export const seed = async ({
     payload.create({
       collection: 'pages',
       depth: 0,
+      context: { disableRevalidate: true },
       data: home({ heroImage: homeImageDoc, metaImage: wimImageDoc }),
     }),
     payload.create({
       collection: 'pages',
       depth: 0,
+      context: { disableRevalidate: true },
       data: contactPageData({ contactForm: contactForm }),
     }),
   ])
@@ -199,6 +201,7 @@ export const seed = async ({
   await Promise.all([
     payload.updateGlobal({
       slug: 'header',
+      context: { disableRevalidate: true },
       data: {
         navItems: [
           {
@@ -223,6 +226,7 @@ export const seed = async ({
     }),
     payload.updateGlobal({
       slug: 'footer',
+      context: { disableRevalidate: true },
       data: {
         navItems: [
           {

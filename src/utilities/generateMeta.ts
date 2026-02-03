@@ -26,7 +26,7 @@ export const generateMeta = async (args: {
 
   const ogImage = getImageURL(doc?.meta?.image)
 
-  const title = doc?.meta?.title || 'Pingu Blog'
+  const title = doc?.meta?.title || 'Pingu Insights'
 
   return {
     description: doc?.meta?.description,

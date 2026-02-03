@@ -61,7 +61,7 @@ export default async function Page() {
 
 export function generateMetadata(): Metadata {
   return {
-    title: 'All Articles | Pingu Blog',
-    description: 'Browse all articles from Pingu Blog.',
+    title: 'All Articles | Pingu Insights',
+    description: 'Browse all articles from Pingu Insights.',
   }
 }

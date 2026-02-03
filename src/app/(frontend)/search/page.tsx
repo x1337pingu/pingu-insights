@@ -83,7 +83,7 @@ export default async function Page({ searchParams: searchParamsPromise }: Args) 
 
 export function generateMetadata(): Metadata {
   return {
-    title: 'Search | Pingu Blog',
-    description: 'Search articles on Pingu Blog.',
+    title: 'Search | Pingu Insights',
+    description: 'Search articles on Pingu Insights.',
   }
 }

@@ -10,7 +10,7 @@ const BeforeDashboard: React.FC = () => {
   return (
     <div className={baseClass}>
       <Banner className={`${baseClass}__banner`} type="success">
-        <h4>Pingu Blog Dashboard</h4>
+        <h4>Pingu Insights Dashboard</h4>
       </Banner>
       <ul className={`${baseClass}__instructions`}>
         <li>

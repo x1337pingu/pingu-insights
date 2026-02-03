@@ -9,8 +9,8 @@ const defaultOpenGraph: Metadata['openGraph'] = {
       url: `${getServerSideURL()}/og-default.png`,
     },
   ],
-  siteName: 'Pingu Blog',
-  title: 'Pingu Blog',
+  siteName: 'Pingu Insights',
+  title: 'Pingu Insights',
 }
 
 export const mergeOpenGraph = (og?: Metadata['openGraph']): Metadata['openGraph'] => {

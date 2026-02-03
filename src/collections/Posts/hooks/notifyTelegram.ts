@@ -26,7 +26,7 @@ export const notifyTelegram: CollectionAfterChangeHook<Post> = async ({
     .join('\n')
 
   const lines = [
-    `New from Pingu Blog`,
+    `New from Pingu Insights`,
     ``,
     `*${escapeMarkdownV2(doc.title)}*`,
   ]

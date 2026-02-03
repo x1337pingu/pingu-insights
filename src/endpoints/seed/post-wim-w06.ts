@@ -24,7 +24,7 @@ export const postWimW06: (args: PostArgs) => RequiredDataFromCollectionSlug<'pos
   ],
   heroImage: heroImage.id,
   meta: {
-    title: 'Week in Markets W06 2026 | Pingu Blog',
+    title: 'Week in Markets W06 2026 | Pingu Insights',
     description:
       'Gold crashed from record highs. Silver worst day since 1980. Bitcoin below $75K. The Warsh nomination changed everything.',
     image: heroImage.id,

@@ -46,8 +46,8 @@ export default async function RootLayout({ children }: { children: React.ReactNo
 export const metadata: Metadata = {
   metadataBase: new URL(getServerSideURL()),
   title: {
-    default: 'Pingu Blog | Market Intelligence & Research',
-    template: '%s | Pingu Blog',
+    default: 'Pingu Insights | Market Intelligence & Research',
+    template: '%s | Pingu Insights',
   },
   description:
     'Market intelligence, research, and insights from Pingu Exchange. Weekly market analysis, technical charts, and crypto research.',

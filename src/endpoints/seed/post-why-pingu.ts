@@ -24,7 +24,7 @@ export const postWhyPingu: (args: PostArgs) => RequiredDataFromCollectionSlug<'p
   ],
   heroImage: heroImage.id,
   meta: {
-    title: 'Why Pingu Is Different | Pingu Blog',
+    title: 'Why Pingu Is Different | Pingu Insights',
     description:
       'Oracle-based execution, fully on-chain, built on Monad. How Pingu delivers zero spread, no price impact, and 800ms finality.',
     image: heroImage.id,

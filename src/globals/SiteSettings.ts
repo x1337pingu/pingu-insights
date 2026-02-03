@@ -12,7 +12,7 @@ export const SiteSettings: GlobalConfig = {
     {
       name: 'siteName',
       type: 'text',
-      defaultValue: 'Pingu Blog',
+      defaultValue: 'Pingu Insights',
       required: true,
     },
     {

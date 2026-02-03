@@ -60,7 +60,7 @@ export default buildConfig({
       ],
     },
     meta: {
-      titleSuffix: ' | Pingu Blog',
+      titleSuffix: ' | Pingu Insights',
       icons: [
         {
           rel: 'icon',
@@ -84,7 +84,9 @@ export default buildConfig({
     }),
     vercelBlobStorage({
       collections: {
-        media: true,
+        media: {
+          disablePayloadAccessControl: true,
+        },
       },
       token: process.env.BLOB_READ_WRITE_TOKEN || '',
     }),

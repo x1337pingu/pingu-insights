@@ -34,10 +34,6 @@ export default async function HomePage() {
     },
   })
 
-  // Get featured post (most recent)
-  const featuredPost = latestPosts.docs[0] || null
-  const restPosts = latestPosts.docs.slice(1)
-
   // Serialize categories for client component
   const categoryData = categories.docs.map((cat) => ({
     id: cat.id,
@@ -52,12 +48,12 @@ export default async function HomePage() {
       <section className="container mb-12">
         <div className="max-w-3xl">
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold text-white mb-4">
-            Market Intelligence
+            Market Insights
             <br />
             <span className="text-[#9051F4]">by Pingu</span>
           </h1>
           <p className="text-[#8D8DC0] text-lg md:text-xl max-w-xl">
-            Weekly market analysis, technical charts, crypto research, and macro insights.
+            Weekly macro recaps, technical levels, and deep dives into DeFi infrastructure.
           </p>
         </div>
       </section>
@@ -65,8 +61,7 @@ export default async function HomePage() {
       {/* Category Filter + Featured + Articles Grid */}
       <HomeArticles
         categories={categoryData}
-        featuredPost={featuredPost as any}
-        restPosts={restPosts as any[]}
+        posts={latestPosts.docs as any[]}
       />
 
       {/* CTA cards */}
@@ -148,7 +143,7 @@ export default async function HomePage() {
 }
 
 export const metadata: Metadata = {
-  title: 'Pingu Blog | Market Intelligence & Research',
+  title: 'Pingu Insights | Market Intelligence & Research',
   description:
     'Weekly market analysis, technical charts, crypto research, and macro insights from Pingu Exchange.',
 }

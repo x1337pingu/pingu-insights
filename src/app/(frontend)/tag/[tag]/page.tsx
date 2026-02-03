@@ -68,7 +68,7 @@ export async function generateMetadata({ params: paramsPromise }: Args): Promise
   const decodedTag = decodeURIComponent(tag)
 
   return {
-    title: `Tag: ${decodedTag} | Pingu Blog`,
-    description: `Articles tagged with "${decodedTag}" on Pingu Blog.`,
+    title: `Tag: ${decodedTag} | Pingu Insights`,
+    description: `Articles tagged with "${decodedTag}" on Pingu Insights.`,
   }
 }

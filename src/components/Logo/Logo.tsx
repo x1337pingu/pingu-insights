@@ -14,7 +14,7 @@ export const Logo = (props: Props) => {
     <span className={clsx('inline-flex items-center gap-1', className)}>
       <span className="text-xl font-bold tracking-tight">
         <span className="text-white">Pingu</span>
-        <span className="text-[#9051F4]"> Blog</span>
+        <span className="text-[#9051F4]"> Insights</span>
       </span>
     </span>
   )
