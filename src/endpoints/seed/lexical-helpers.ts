@@ -60,6 +60,17 @@ export const marketTable = (
   version: 2,
 })
 
+export const mediaBlock = (mediaId: string | number) => ({
+  type: 'block' as const,
+  fields: {
+    blockName: '',
+    blockType: 'mediaBlock',
+    media: mediaId,
+  },
+  format: '' as const,
+  version: 2,
+})
+
 export const banner = (text: string, style = 'info') => ({
   type: 'block' as const,
   fields: {
