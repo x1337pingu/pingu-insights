@@ -321,7 +321,7 @@ html[data-theme='light'] {
   --tw-prose-body: #E0E0E6;
   --tw-prose-headings: #D4BBFF;
   --tw-prose-links: #9051F4;
-  --tw-prose-bold: #E8DBFF;
+  --tw-prose-bold: #FFFFFF;
   --tw-prose-code: #ef9f76;
   --tw-prose-pre-bg: oklch(0.19 0.012 290);
   --tw-prose-pre-code: #E0E0E6;
@@ -344,7 +344,7 @@ html[data-theme='light'] {
 }
 
 .prose h3 {
-  color: #B49ADB;
+  color: #93C5E8;
   font-weight: 600;
   margin-top: 2rem;
   margin-bottom: 0.75rem;
@@ -352,14 +352,14 @@ html[data-theme='light'] {
 }
 
 .prose h4 {
-  color: #A08CC0;
+  color: #7FB8D8;
   font-weight: 600;
   margin-top: 1.5rem;
   margin-bottom: 0.5rem;
 }
 
 .prose strong {
-  color: #E8DBFF;
+  color: #FFFFFF;
 }
 
 .prose li::marker {

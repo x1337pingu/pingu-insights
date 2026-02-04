@@ -8,13 +8,13 @@ export const postWhyPingu: (args: PostArgs) => RequiredDataFromCollectionSlug<'p
   heroImage,
   author,
 }) => ({
-  slug: 'why-pingu-is-different',
+  slug: 'pingu-on-monad-but-why',
   _status: 'published',
   authors: [author],
   publishedAt: '2026-01-28T10:00:00.000Z',
-  title: 'Why Pingu Is Different: Oracle-Based, On-Chain, On Monad',
+  title: 'Pingu on Monad: But Why?',
   excerpt:
-    "Every perp DEX makes a fundamental choice: how to determine execution price. Pingu chose oracle-based because execution quality shouldn't depend on who's making markets on the platform.",
+    "Fully on-chain, oracle-based, and auditable end to end. Here's what makes Pingu's architecture on Monad fundamentally different from every other perp DEX.",
   tags: [
     { tag: 'pingu' },
     { tag: 'defi' },
@@ -24,9 +24,9 @@ export const postWhyPingu: (args: PostArgs) => RequiredDataFromCollectionSlug<'p
   ],
   heroImage: heroImage.id,
   meta: {
-    title: 'Why Pingu Is Different | Pingu Insights',
+    title: 'Pingu on Monad: But Why? | Pingu Insights',
     description:
-      'Oracle-based execution, fully on-chain, built on Monad. How Pingu delivers zero spread, no price impact, and 800ms finality.',
+      'Fully on-chain, oracle-based, and auditable. Why Pingu chose Monad for zero-spread perpetuals with 800ms finality.',
     image: heroImage.id,
   },
   relatedPosts: [],
