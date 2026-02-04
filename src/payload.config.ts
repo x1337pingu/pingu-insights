@@ -18,6 +18,7 @@ import { plugins } from './plugins'
 import { defaultLexical } from '@/fields/defaultLexical'
 import { getServerSideURL } from './utilities/getURL'
 import { vercelBlobStorage } from '@payloadcms/storage-vercel-blob'
+import { resendAdapter } from '@payloadcms/email-resend'
 import { payloadTotp } from 'payload-totp'
 
 const filename = fileURLToPath(import.meta.url)
@@ -91,6 +92,11 @@ export default buildConfig({
       token: process.env.BLOB_READ_WRITE_TOKEN || '',
     }),
   ],
+  email: resendAdapter({
+    defaultFromAddress: 'blog@pingu.exchange',
+    defaultFromName: 'Pingu Insights',
+    apiKey: process.env.RESEND_API_KEY || '',
+  }),
   globals: [Header, Footer, SiteSettings],
   secret: process.env.PAYLOAD_SECRET,
   sharp,
