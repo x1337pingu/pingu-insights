@@ -70,14 +70,14 @@ export const HomeArticles: React.FC<Props> = ({ categories, posts }) => {
 
   return (
     <section className="container mb-16">
-      {/* Category filter */}
+      {/* Category filter - minimal style */}
       {categories.length > 0 && (
-        <div className="flex flex-wrap gap-2 mb-8 max-w-[900px] mx-auto">
+        <div className="flex flex-wrap items-center gap-1 mb-10">
           <button
             onClick={() => setActiveCategory(null)}
-            className={`text-sm font-semibold px-4 py-1.5 rounded-md transition-all ${
+            className={`text-sm font-medium px-4 py-2 rounded-lg transition-all ${
               !activeCategory
-                ? 'bg-[#9051F4] text-white'
+                ? 'bg-[#9051F4]/15 text-[#9051F4]'
                 : 'text-[#8D8DC0] hover:text-white'
             }`}
           >
@@ -85,17 +85,15 @@ export const HomeArticles: React.FC<Props> = ({ categories, posts }) => {
           </button>
           {categories.map((category) => {
             const isActive = activeCategory === category.slug
-            const color = category.color || '#9051F4'
             return (
               <button
                 key={category.id}
                 onClick={() => setActiveCategory(isActive ? null : category.slug)}
-                className="text-sm font-semibold px-4 py-1.5 rounded-md transition-all"
-                style={
+                className={`text-sm font-medium px-4 py-2 rounded-lg transition-all ${
                   isActive
-                    ? { backgroundColor: color, color: '#fff' }
-                    : { color: color, opacity: 0.7 }
-                }
+                    ? 'bg-[#9051F4]/15 text-white'
+                    : 'text-[#8D8DC0] hover:text-white'
+                }`}
               >
                 {category.title}
               </button>
@@ -104,8 +102,8 @@ export const HomeArticles: React.FC<Props> = ({ categories, posts }) => {
         </div>
       )}
 
-      {/* Article list */}
-      <div className="max-w-[900px] mx-auto flex flex-col gap-5">
+      {/* Article list - full width, large cards */}
+      <div className="flex flex-col gap-6">
         {displayPosts.map((post) => {
           const imageUrl = getImageUrl(post)
           const imageAlt = getImageAlt(post)
@@ -115,33 +113,33 @@ export const HomeArticles: React.FC<Props> = ({ categories, posts }) => {
             <Link
               key={post.id}
               href={`/posts/${post.slug}`}
-              className="group flex flex-col sm:flex-row rounded-xl overflow-hidden border border-border bg-card hover:border-[#9051F4]/40 transition-all"
+              className="group flex flex-col md:flex-row rounded-xl overflow-hidden border border-border bg-card hover:border-[#9051F4]/30 transition-all"
             >
-              {/* Image */}
-              <div className="relative w-full sm:w-[300px] shrink-0 aspect-video sm:aspect-auto sm:min-h-[180px] overflow-hidden">
+              {/* Image - larger */}
+              <div className="relative w-full md:w-[45%] shrink-0 aspect-[16/10] md:aspect-auto md:min-h-[280px] overflow-hidden">
                 {imageUrl ? (
                   <img
                     src={imageUrl}
                     alt={imageAlt}
-                    className="w-full h-full object-cover group-hover:scale-[1.03] transition-transform duration-500"
+                    className="w-full h-full object-cover group-hover:scale-[1.02] transition-transform duration-500"
                   />
                 ) : (
                   <div className="w-full h-full bg-card" />
                 )}
               </div>
 
-              {/* Content */}
-              <div className="flex-1 p-5 sm:py-6 flex flex-col justify-center min-w-0">
-                <div className="flex flex-wrap items-center gap-2 mb-2.5">
+              {/* Content - bigger text */}
+              <div className="flex-1 p-6 md:p-8 flex flex-col justify-center min-w-0">
+                <div className="flex flex-wrap items-center gap-2 mb-4">
                   {(post.categories as any[])?.map((cat, index) => {
                     if (typeof cat === 'object' && cat !== null) {
                       const catColor = cat.color || '#9051F4'
                       return (
                         <span
                           key={index}
-                          className="text-xs font-semibold px-2 py-0.5 rounded-md"
+                          className="text-xs font-semibold px-2.5 py-1 rounded-md"
                           style={{
-                            backgroundColor: `${catColor}20`,
+                            backgroundColor: `${catColor}18`,
                             color: catColor,
                           }}
                         >
@@ -158,15 +156,19 @@ export const HomeArticles: React.FC<Props> = ({ categories, posts }) => {
                   )}
                 </div>
 
-                <h2 className="text-lg font-bold text-white mb-2 line-clamp-2 group-hover:text-[#9051F4] transition-colors">
+                <h2 className="text-xl md:text-2xl font-bold text-white mb-3 line-clamp-2 group-hover:text-[#9051F4] transition-colors">
                   {post.title}
                 </h2>
 
                 {excerptText && (
-                  <p className="text-sm text-[#8D8DC0] line-clamp-2 leading-relaxed">
+                  <p className="text-sm md:text-base text-[#8D8DC0] line-clamp-3 leading-relaxed mb-4">
                     {excerptText}
                   </p>
                 )}
+
+                <span className="text-[#9051F4] text-sm font-semibold group-hover:text-white transition-colors">
+                  Read article
+                </span>
               </div>
             </Link>
           )

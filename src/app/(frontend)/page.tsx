@@ -6,6 +6,7 @@ import React from 'react'
 
 import { HomeArticles } from '@/components/HomeArticles'
 import { NewsletterForm } from '@/components/NewsletterForm'
+import { AnimatedBackground } from '@/components/AnimatedBackground'
 
 export default async function HomePage() {
   const payload = await getPayload({ config: configPromise })
@@ -43,7 +44,9 @@ export default async function HomePage() {
   }))
 
   return (
-    <div className="pt-8 pb-16">
+    <div className="pt-8 pb-16 relative">
+      <AnimatedBackground />
+
       {/* Hero Section */}
       <section className="container mb-12">
         <div className="max-w-3xl">

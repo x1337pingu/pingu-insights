@@ -90,8 +90,8 @@ export const seed = async ({
 
   // Create categories
   const categoryData = [
-    { title: 'Week in Markets', slug: 'week-in-markets', color: '#29B6F6' },
-    { title: 'Knowledge Base', slug: 'knowledge-base', color: '#72FFA6' },
+    { title: 'Week in Markets', slug: 'week-in-markets', color: '#D4A03C' },
+    { title: 'Knowledge Base', slug: 'knowledge-base', color: '#5CA8E8' },
     { title: 'Chart Check', slug: 'chart-check', color: '#FFB74D' },
     { title: 'Announcements', slug: 'announcements', color: '#FF99D2' },
   ]
