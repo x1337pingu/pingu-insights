@@ -36,7 +36,7 @@ export const notifySubscribers: CollectionAfterChangeHook<Post> = async ({
     const resend = new Resend(apiKey)
 
     await resend.emails.send({
-      from: 'Pingu Insights <blog@pingu.exchange>',
+      from: 'Pingu Insights <insights@pingu.exchange>',
       to: emails,
       subject: doc.title,
       html: `

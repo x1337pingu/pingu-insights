@@ -93,7 +93,7 @@ export default buildConfig({
     }),
   ],
   email: resendAdapter({
-    defaultFromAddress: 'blog@pingu.exchange',
+    defaultFromAddress: 'insights@pingu.exchange',
     defaultFromName: 'Pingu Insights',
     apiKey: process.env.RESEND_API_KEY || '',
   }),
