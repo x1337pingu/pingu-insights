@@ -75,23 +75,22 @@ function FeaturedArticle({ post }: { post: PostData }) {
   return (
     <Link
       href={`/posts/${post.slug}`}
-      className="group block rounded-2xl overflow-hidden bg-card/60 hover:bg-card transition-all duration-300"
+      className="group flex flex-col md:flex-row rounded-2xl overflow-hidden bg-card/60 hover:bg-card transition-all duration-300"
       style={{ boxShadow: '0 2px 20px rgba(0,0,0,0.15), 0 0 0 1px rgba(144,81,244,0.04)' }}
     >
-      {/* Large hero image */}
+      {/* Image - side by side on desktop */}
       {imageUrl && (
-        <div className="relative w-full aspect-[2/1] overflow-hidden">
+        <div className="relative w-full md:w-[50%] shrink-0 aspect-[16/10] md:aspect-auto md:min-h-[260px] overflow-hidden">
           <img
             src={imageUrl}
             alt={imageAlt}
             className="w-full h-full object-cover group-hover:scale-[1.02] transition-transform duration-700"
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent" />
         </div>
       )}
 
       {/* Content */}
-      <div className="p-6 md:p-8">
+      <div className="flex-1 p-6 md:p-8 flex flex-col justify-center">
         <div className="flex items-center gap-3 mb-4">
           {(post.categories as any[])?.map((cat, i) => (
             <CategoryBadge key={i} cat={cat} />
@@ -103,12 +102,12 @@ function FeaturedArticle({ post }: { post: PostData }) {
           )}
         </div>
 
-        <h2 className="text-2xl md:text-3xl font-bold text-white mb-3 group-hover:text-[#9051F4] transition-colors leading-tight">
+        <h2 className="text-xl md:text-2xl font-bold text-white mb-3 group-hover:text-[#9051F4] transition-colors leading-tight">
           {post.title}
         </h2>
 
         {excerptText && (
-          <p className="text-[#8D8DC0] text-base md:text-lg leading-relaxed line-clamp-2 mb-4">
+          <p className="text-[#8D8DC0] text-sm md:text-base leading-relaxed line-clamp-3 mb-4">
             {excerptText}
           </p>
         )}
