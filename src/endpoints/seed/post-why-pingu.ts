@@ -14,7 +14,7 @@ export const postWhyPingu: (args: PostArgs) => RequiredDataFromCollectionSlug<'p
   publishedAt: '2026-01-28T10:00:00.000Z',
   title: 'Pingu on Monad: But Why?',
   excerpt:
-    "Fully on-chain, oracle-based, and auditable end to end. Here's what makes Pingu's architecture on Monad fundamentally different from every other perp DEX.",
+    "Built on Monad, a truly decentralized high-performance L1. Oracle-based execution, fully on-chain, and auditable end to end.",
   tags: [
     { tag: 'pingu' },
     { tag: 'defi' },

@@ -319,7 +319,7 @@ html[data-theme='light'] {
 /* ── Prose / article body ── */
 .prose {
   --tw-prose-body: #E0E0E6;
-  --tw-prose-headings: #D4BBFF;
+  --tw-prose-headings: #93C5E8;
   --tw-prose-links: #9051F4;
   --tw-prose-bold: #FFFFFF;
   --tw-prose-code: #ef9f76;
@@ -336,7 +336,7 @@ html[data-theme='light'] {
 }
 
 .prose h2 {
-  color: #D4BBFF;
+  color: #93C5E8;
   font-weight: 700;
   margin-top: 3rem;
   margin-bottom: 1rem;
@@ -344,7 +344,7 @@ html[data-theme='light'] {
 }
 
 .prose h3 {
-  color: #93C5E8;
+  color: #D4BBFF;
   font-weight: 600;
   margin-top: 2rem;
   margin-bottom: 0.75rem;
@@ -352,7 +352,7 @@ html[data-theme='light'] {
 }
 
 .prose h4 {
-  color: #7FB8D8;
+  color: #B8A8D8;
   font-weight: 600;
   margin-top: 1.5rem;
   margin-bottom: 0.5rem;
