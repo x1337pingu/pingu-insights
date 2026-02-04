@@ -102,8 +102,8 @@ export const HomeArticles: React.FC<Props> = ({ categories, posts }) => {
         </div>
       )}
 
-      {/* Article list - full width, large cards */}
-      <div className="flex flex-col gap-6">
+      {/* Article list */}
+      <div className="max-w-[1100px] mx-auto flex flex-col gap-6">
         {displayPosts.map((post) => {
           const imageUrl = getImageUrl(post)
           const imageAlt = getImageAlt(post)

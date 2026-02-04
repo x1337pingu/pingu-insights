@@ -91,7 +91,7 @@ export const seed = async ({
   // Create categories
   const categoryData = [
     { title: 'Week in Markets', slug: 'week-in-markets', color: '#D4A03C' },
-    { title: 'Knowledge Base', slug: 'knowledge-base', color: '#5CA8E8' },
+    { title: 'Knowledge Base', slug: 'knowledge-base', color: '#4DB6AC' },
     { title: 'Chart Check', slug: 'chart-check', color: '#FFB74D' },
     { title: 'Announcements', slug: 'announcements', color: '#FF99D2' },
   ]
