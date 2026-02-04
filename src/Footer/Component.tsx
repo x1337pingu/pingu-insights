@@ -21,7 +21,7 @@ export async function Footer() {
               <Logo />
             </Link>
             <p className="text-[#8D8DC0] text-sm max-w-xs">
-              Decentralized perpetuals on Monad. Market intelligence and research.
+              Market intelligence by Pingu. Decentralized perpetuals on Monad.
             </p>
           </div>
 

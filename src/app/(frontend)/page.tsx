@@ -56,7 +56,7 @@ export default async function HomePage() {
             <span className="text-[#9051F4]">by Pingu</span>
           </h1>
           <p className="text-[#8D8DC0] text-lg md:text-xl max-w-xl">
-            Weekly macro recaps, technical levels, and deep dives into DeFi infrastructure.
+            Weekly macro recaps, technical levels, and deep dives into Pingu's infrastructure.
           </p>
         </div>
       </section>
