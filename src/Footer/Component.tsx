@@ -44,22 +44,30 @@ export async function Footer() {
               <a href="https://discord.gg/pinguexchange" target="_blank" rel="noopener noreferrer" className="text-[#D5D5DA] text-sm hover:text-white transition-colors">Discord</a>
             </div>
 
-            {navItems.length > 0 && (
-              <div className="flex flex-col gap-2">
-                <span className="text-[#8D8DC0] text-xs font-semibold uppercase tracking-wider">
-                  More
-                </span>
-                <nav className="flex flex-col gap-2">
-                  {navItems.map(({ link }, i) => (
-                    <CMSLink
-                      className="text-[#D5D5DA] text-sm hover:text-white transition-colors"
-                      key={i}
-                      {...link}
-                    />
-                  ))}
-                </nav>
-              </div>
-            )}
+{(() => {
+              const filteredItems = navItems.filter(({ link }) => {
+                const url = link?.url || ''
+                const ref = link?.reference?.value
+                const slug = typeof ref === 'object' && ref?.slug ? ref.slug : ''
+                return !url.includes('admin') && !slug.includes('admin')
+              })
+              return filteredItems.length > 0 ? (
+                <div className="flex flex-col gap-2">
+                  <span className="text-[#8D8DC0] text-xs font-semibold uppercase tracking-wider">
+                    More
+                  </span>
+                  <nav className="flex flex-col gap-2">
+                    {filteredItems.map(({ link }, i) => (
+                      <CMSLink
+                        className="text-[#D5D5DA] text-sm hover:text-white transition-colors"
+                        key={i}
+                        {...link}
+                      />
+                    ))}
+                  </nav>
+                </div>
+              ) : null
+            })()}
           </div>
         </div>
 
