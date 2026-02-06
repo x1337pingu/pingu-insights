@@ -81,7 +81,7 @@ export default buildConfig({
     ...plugins,
     payloadTotp({
       collection: 'users',
-      forceSetup: false, // Temporarily disabled - enable after master account is created
+      forceSetup: true,
     }),
     vercelBlobStorage({
       collections: {

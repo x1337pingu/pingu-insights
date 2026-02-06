@@ -6,8 +6,14 @@ export const Users: CollectionConfig = {
   slug: 'users',
   access: {
     admin: authenticated,
-    create: authenticated, // temporarily open - will restrict to master after setup
-    delete: authenticated, // temporarily open - will restrict to master after setup
+    create: ({ req: { user } }) => {
+      if (!user) return false
+      return (user as any).role === 'master'
+    },
+    delete: ({ req: { user } }) => {
+      if (!user) return false
+      return (user as any).role === 'master'
+    },
     read: authenticated,
     update: ({ req: { user }, id }) => {
       if (!user) return false
@@ -38,7 +44,13 @@ export const Users: CollectionConfig = {
         { label: 'Editor', value: 'editor' },
       ],
       required: true,
-      // access restriction will be added after master account is set up
+      access: {
+        // Only master can change roles
+        update: ({ req: { user } }) => {
+          if (!user) return false
+          return (user as any).role === 'master'
+        },
+      },
     },
   ],
   timestamps: true,
