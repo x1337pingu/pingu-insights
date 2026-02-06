@@ -83,7 +83,7 @@ function generateEmailHtml({
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 <body style="margin: 0; padding: 0; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif; background-color: #0a0a0a;">
-  <table role="presentation" width="100%" cellspacing="0" cellpadding="0" style="background-color: #0a0a0a; background-image: url(https://pingu-blog-xi.vercel.app/grid-pattern.png); background-repeat: repeat;">
+  <table role="presentation" width="100%" cellspacing="0" cellpadding="0" style="background-color: #0a0a0a; background-image: url(https://insights.pingu.exchange/grid-pattern.png); background-repeat: repeat;">
     <tr>
       <td align="center" style="background: linear-gradient(180deg, rgba(10,10,10,0.85) 0%, rgba(10,10,10,0.8) 60%, rgba(50,15,70,0.6) 80%, rgba(144,81,244,0.3) 100%); padding: 48px 20px;">
         <table role="presentation" width="100%" cellspacing="0" cellpadding="0" style="max-width: 560px;">
@@ -101,7 +101,7 @@ function generateEmailHtml({
               <table role="presentation" width="100%" cellspacing="0" cellpadding="0">
                 <tr>
                   <td>
-                    <img src="https://pingu-blog-xi.vercel.app/logo-white.svg" alt="Pingu" width="100" style="display: block;"/>
+                    <img src="https://insights.pingu.exchange/logo-white.svg" alt="Pingu" width="100" style="display: block;"/>
                   </td>
                   <td align="right">
                     <span style="color: #72FFA6; font-size: 11px; font-weight: 600; letter-spacing: 2px; text-transform: uppercase;">Insights</span>
